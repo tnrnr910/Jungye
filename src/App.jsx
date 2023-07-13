@@ -12,6 +12,8 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<Product />} />
+        <Route path="/signin" element={<signin />} />
+        <Route path="/signup" element={<signup />} />
         <Route
           path="*"
           element={
