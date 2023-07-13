@@ -29,7 +29,7 @@ export default function Products() {
     },
   ];
 
-  // 가격순으로 정렬 버튼 클릭 시 쿼리 파라미터 변경
+  // 가격순으로 정렬
   const handleSortClick = () => {
     setSearchParams({ sort: "price" });
   };
