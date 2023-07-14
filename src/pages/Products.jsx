@@ -1,38 +1,12 @@
 import React from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { 정렬맨, 리셋맨 } from "../index";
 
 export default function Products() {
   const [searchParams, setSearchParams] = useSearchParams();
-
-  // 상품 데이터 정의
-  const products = [
-    {
-      id: 1,
-      name: "멋진 바지",
-      price: 20000,
-      options: [28, 30, 32],
-      likes: 100,
-    },
-    {
-      id: 2,
-      name: "멋진 셔츠",
-      price: 10000,
-      options: ["small", "medium", "large"],
-      likes: 200,
-    },
-    {
-      id: 3,
-      name: "멋진 신발",
-      price: 30000,
-      options: [230, 240, 250, 260, 270],
-      likes: 300,
-    },
-  ];
-
-  // 가격순으로 정렬
-  const handleSortClick = () => {
-    setSearchParams({ sort: "price" });
-  };
+  const products = useSelector((state) => state.products);
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -43,7 +17,20 @@ export default function Products() {
         }}
       >
         <h2>🔥 여름 추천템 🔥</h2>
-        <button onClick={handleSortClick}>가격순으로 정렬</button>
+        <button
+          onClick={() => {
+            dispatch(정렬맨());
+          }}
+        >
+          가격순으로 정렬
+        </button>
+        <button
+          onClick={() => {
+            dispatch(리셋맨());
+          }}
+        >
+          초기화
+        </button>
         <div
           style={{
             display: "flex",

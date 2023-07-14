@@ -4,8 +4,10 @@ import Main from "./pages/Main";
 import Product from "./pages/Product";
 import Products from "./pages/Products";
 import Layout from "./common/Layout";
+import { UseSelector, useSelector } from "react-redux/es/hooks/useSelector";
 
 function App() {
+  const products = useSelector((state) => state.products);
   return (
     <Routes>
       <Route element={<Layout />}>
